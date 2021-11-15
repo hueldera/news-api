@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "challenge"
+      POSTGRES_DB: "challenge"
+  
+  web:
+    build: 
+      context: .
+    command: > 
+      sh -c "python manage.py wait_for_database &&
+             python manage.py migrate &&
+             python manage.py collectstatic --no-input &&
+             gunicorn core.wsgi --bind 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      ENV_FOR_DYNACONF: "production"
+    depends_on:
+      - db

@@ -1,0 +1,12 @@
+default:
+  STATIC_URL: /static/
+  ALLOWED_HOSTS:
+    - "*"
+
+development:
+  DEBUG: true
+    
+production:
+  DEBUG: false
+  
+    

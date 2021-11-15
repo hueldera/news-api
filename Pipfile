@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+djangorestframework = "*"
+psycopg2 = "*"
+Django = "*"
+psycopg2-binary = "*"
+dynaconf = {extras = ["yaml"], version = "*"}
+gunicorn = "*"
+djangorestframework-simplejwt = "*"
+factory-boy = "*"
+drf-yasg = "*"
+django-probes = "*"
+
+[dev-packages]
+black = "*"
+
+[requires]
+python_version = "3.10"
