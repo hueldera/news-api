@@ -11,5 +11,3 @@ class UsersTestCase(APITestCase):
         response = self.client.post("/api/login", user_data, format="json")
         self.assertIn("access", response.data)
         self.assertIn("refresh", response.data)
-
-        response = self.client.post("/api/login", user_data, format="json")
